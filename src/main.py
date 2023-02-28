@@ -4,6 +4,8 @@ import random
 import math
 import time
 import sys
+import platform
+
 sys.setrecursionlimit(20000)
 
 # FUNGSI DAN PROSEDUR
@@ -239,8 +241,16 @@ def main():
     bx.text2D(0.6, 0.1, info_brute, fontsize=9, transform=plt.gcf().transFigure)
 
     print(f"\nTitik yang digunakan: {x}\n")
+
+    my_system = platform.uname()
+    print(f"System    : {my_system.system}")
+    print(f"Node Name : {my_system.node}")
+    print(f"Release   : {my_system.release}")
+    print(f"Version   : {my_system.version}")
+    print(f"Machine   : {my_system.machine}")
+    print(f"Processor : {my_system.processor}\n")
+
     print(info_divide)
-    print("\n")
     print(info_brute)
 
     # VISUALISASI
