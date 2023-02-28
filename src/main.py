@@ -189,8 +189,8 @@ def solution_to_string(daftar_solusi, dimensi):
 def main():
     # inisialisasi
     fig = plt.figure(figsize=(15, 9))
-    ax = fig.add_subplot(2, 3, 1, projection='3d')
-    bx = fig.add_subplot(2, 3, 3, projection='3d')
+    ax = fig.add_subplot(2, 3, 1, projection='3d') # visualisasi untuk divide and conquer
+    bx = fig.add_subplot(2, 3, 3, projection='3d') # visualisasi untuk bruteforce
     ax.set_title("Hasil dari Divide and Conquer")
     bx.set_title("Hasil dari Bruteforce")
     n = int(input("Masukkan jumlah titik: "))
@@ -217,17 +217,12 @@ def main():
     # sort terlebih dahulu titik"nya
     daftar_titik = sort_titik(x, 0)
 
-    #print(daftar_titik)
-
-    # algoritma disini
+    # algoritma divide and conquer
     jumlahperhitungan_divide = 0
     start_divide = time.time()
     pasangan_divide, jarak, jumlahperhitungan_divide = find_minimum(daftar_titik, jumlahperhitungan_divide)
     end_divide = time.time()
     exec_time_divide = end_divide-start_divide
-    
-    info_divide = f"Deskripsi hasil Divide and Conquer:\n\nWaktu eksekusi: {exec_time_divide}s \nJumlah kalkulasi: {jumlahperhitungan_divide}\nJarak terdekat: {jarak}\nSolusi:\n{solution_to_string(pasangan_divide, dimensi)}"
-    ax.text2D(0.1, 0.1, info_divide, fontsize=9, transform=plt.gcf().transFigure)
 
     # algoritma bruteforce
     jumlahperhitungan_brute = 0
@@ -236,10 +231,13 @@ def main():
     end_brute = time.time()
     exec_time_brute = end_brute-start_brute
 
+    # semua data akan ditampilkan di terminal 
+    info_divide = f"Deskripsi hasil Divide and Conquer:\n\nWaktu eksekusi: {exec_time_divide}s \nJumlah kalkulasi: {jumlahperhitungan_divide}\nJarak terdekat: {jarak}\nSolusi:\n{solution_to_string(pasangan_divide, dimensi)}"
+    ax.text2D(0.1, 0.1, info_divide, fontsize=9, transform=plt.gcf().transFigure)
+
     info_brute = f"Deskripsi hasil Bruteforce:\n\nWaktu eksekusi: {exec_time_brute}s \nJumlah kalkulasi: {jumlahperhitungan_brute}\nJarak terdekat: {jarak_brute}\nSolusi:\n{solution_to_string(pasangan_brute, dimensi)}"
     bx.text2D(0.6, 0.1, info_brute, fontsize=9, transform=plt.gcf().transFigure)
 
-    # semua data akan ditampilkan di terminal 
     print(f"\nTitik yang digunakan: {x}\n")
     print(info_divide)
     print("\n")
