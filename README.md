@@ -3,7 +3,9 @@
 Program mencari pasangan titik dengan jarak terpendek pada ruang 3D dalam bahasa Python dan menggunakan algoritma Divide and Conquer
 
 ## Installing / Getting started
-Program memerlukan python3, untuk instalasi bisa dilihat di: https://www.python.org/downloads/
+Program memerlukan: 
+- python atau python3, untuk instalasi bisa dilihat di: https://www.python.org/downloads/
+- matplotlib, untuk instalasi bisa dilihat di: https://matplotlib.org/stable/users/installing/index.html
 
 ## How to run?
 Pertama-tama clone dulu repository ini, caranya adalah dengan membuka terminal pada folder dimana kalian mau programnya diclone. Setelah terminal dibuka maka masukan command ini ke terminal:
@@ -20,6 +22,10 @@ cd src
 
 Untuk menjalankan programnya, maka bisa dilakukan dengan memasukkan command berikut:
 
+```shell
+python main.py
+```
+atau jika matplotlib diinstall melalui python3
 ```shell
 python3 main.py
 ```
